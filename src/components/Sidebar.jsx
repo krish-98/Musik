@@ -27,7 +27,7 @@ const Sidebar = () => {
   return (
     <>
       <div className="hidden md:flex flex-col w-[240px] py-10 px-4 bg-[#191624]">
-        <img src={logo} alt="logo" className="w-full h-14 object-contain" />
+        <h1 className="w-full h-14 text-white font-bold text-4xl">MUSIK</h1>
         <NavLinks />
       </div>
 
@@ -50,7 +50,7 @@ const Sidebar = () => {
           mobileMenuOpen ? "left-0" : "-left-full"
         }`}
       >
-        <img src={logo} alt="logo" className="w-full h-14 object-contain" />
+        <h1 className="w-full h-14 text-white font-bold text-4xl">MUSIK</h1>
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />
       </div>
     </>
