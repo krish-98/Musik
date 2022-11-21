@@ -12,7 +12,7 @@ const RelatedSongs = ({
     <h1 className="font-bold text-3xl text-white">Related Songs:</h1>
     {data?.map((song, i) => (
       <SongBar
-        key={`${song.key}-${artistId}`}
+        key={`${song.id}-${artistId}`}
         song={song}
         i={i}
         artistId={artistId}
