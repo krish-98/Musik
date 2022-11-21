@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import { RiCloseLine } from "react-icons/ri"
 import { HiOutlineMenu } from "react-icons/hi"
+import { FaMusic } from "react-icons/fa"
 
 import { links } from "../assets/constants"
 
@@ -26,8 +27,11 @@ const Sidebar = () => {
   return (
     <>
       <div className="hidden md:flex flex-col w-[240px] py-10 px-4 bg-[#191624]">
-        <Link to="/">
-          <h1 className="w-full h-14 text-white font-bold text-4xl">MUSIK</h1>
+        <Link to="/" className="flex items-center justify-center gap-3">
+          <h1 className="h-14 text-white font-bold text-4xl  tracking-wider">
+            MUSIK
+          </h1>
+          <FaMusic className="w-8 h-8 text-white self-start" />
         </Link>
         <NavLinks />
       </div>
@@ -51,8 +55,11 @@ const Sidebar = () => {
           mobileMenuOpen ? "left-0" : "-left-full"
         }`}
       >
-        <Link to="/">
-          <h1 className="w-full h-14 text-white font-bold text-4xl">MUSIK</h1>
+        <Link to="/" className="flex items-center justify-center gap-3">
+          <h1 className="h-14 text-white font-bold text-4xl tracking-wider">
+            MUSIK
+          </h1>
+          <FaMusic className="w-8 h-8 text-white self-start" />
         </Link>
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />
       </div>
