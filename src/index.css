@@ -4,11 +4,11 @@
 
 /* Active Navigation Link */
 .active {
-  @apply text-cyan-500;
+  @apply text-[#f81617];
 }
 
 .active svg {
-  @apply text-cyan-500;
+  @apply text-[#f81617];
 }
 
 .bar:nth-child(2) {
@@ -40,4 +40,8 @@
 .hide-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #f70000 !important;
 }

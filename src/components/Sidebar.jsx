@@ -13,7 +13,7 @@ const NavLinks = ({ handleClick }) => (
         key={item.name}
         to={item.to}
         onClick={() => handleClick && handleClick()}
-        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-gray-400"
+        className="flex flex-row justify-start items-center my-8 text-sm font-medium text-[#dedede]"
       >
         <item.icon className="w-6 h-6 mr-2" />
         {item.name}
@@ -26,12 +26,12 @@ const Sidebar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <>
-      <div className="hidden md:flex flex-col w-[240px] py-10 px-4 bg-[#191624]">
+      <div className="hidden md:flex flex-col w-[240px] py-10 px-4 bg-black">
         <Link to="/" className="flex items-center justify-center gap-3">
           <h1 className="h-14 text-white font-bold text-4xl  tracking-wider">
             MUSIK
           </h1>
-          <FaMusic className="w-8 h-8 text-white self-start" />
+          <FaMusic className="w-8 h-8 text-[#f81617] self-start" />
         </Link>
         <NavLinks />
       </div>
@@ -51,7 +51,7 @@ const Sidebar = () => {
         )}
       </div>
       <div
-        className={`absolute top-0 h-screen w-2/3 bg-gradient-to-tl from-white/10 to-[#483d8b] backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${
+        className={`absolute top-0 h-screen w-2/3 bg-gradient-to-tl from-white/10  backdrop-blur-lg z-10 p-6 md:hidden smooth-transition ${
           mobileMenuOpen ? "left-0" : "-left-full"
         }`}
       >
@@ -59,7 +59,7 @@ const Sidebar = () => {
           <h1 className="h-14 text-white font-bold text-4xl tracking-wider">
             MUSIK
           </h1>
-          <FaMusic className="w-8 h-8 text-white self-start" />
+          <FaMusic className="w-8 h-8 text-[#f81617] self-start" />
         </Link>
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />
       </div>
