@@ -46,8 +46,6 @@ const App = () => {
       )}
     </div>
   )
-
-  // bg-gradient-to-br from-white/10 to-[#ffeeee]
 }
 
 export default App
