@@ -1,5 +1,6 @@
+import { FaMusic } from "react-icons/fa"
 import { useSelector } from "react-redux"
-import { Route, Routes } from "react-router-dom"
+import { Link, Route, Routes } from "react-router-dom"
 
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from "./components"
 import {
@@ -16,12 +17,19 @@ const App = () => {
   const { activeSong } = useSelector((state) => state.player)
 
   return (
-    <div className="relative flex">
+    <div className="relative flex flex-col">
+      <Link to="/">
+        <h1 className="h-14 text-white font-bold text-4xl  tracking-wider">
+          MUSIK
+        </h1>
+        <FaMusic className="w-8 h-8 text-[#f81617] self-start" />
+      </Link>
+
       <Sidebar />
-      <div className="flex-1 flex flex-col bg-black ">
+      <div className="flex-1 flex flex-col bg-black">
         <Searchbar />
 
-        <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
+        <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex flex-col-reverse xl:flex-row">
           <div className="flex-1 h-fit pb-40">
             <Routes>
               <Route path="/" element={<Discover />} />

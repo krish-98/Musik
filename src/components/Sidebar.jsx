@@ -24,6 +24,7 @@ const NavLinks = ({ handleClick }) => (
 
 const Sidebar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
     <>
       <div className="hidden md:flex flex-col w-[240px] py-10 px-4 bg-black">
@@ -37,7 +38,7 @@ const Sidebar = () => {
       </div>
 
       {/* Mobile Navbar */}
-      <div className="absolute md:hidden block top-6 right-3">
+      {/* <div className="absolute md:hidden block top-6 right-3">
         {mobileMenuOpen ? (
           <RiCloseLine
             onClick={() => setMobileMenuOpen(false)}
@@ -62,7 +63,7 @@ const Sidebar = () => {
           <FaMusic className="w-8 h-8 text-[#f81617] self-start" />
         </Link>
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />
-      </div>
+      </div> */}
     </>
   )
 }
