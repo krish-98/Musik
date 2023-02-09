@@ -1,17 +1,38 @@
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { DetailsHeader, Error, Loader, RelatedSongs } from "../components"
 
-import { useGetArtistDetailsQuery } from "../redux/services/shazamCore"
-
 const ArtistDetails = () => {
   const { id: artistId } = useParams()
   const { activeSong, isPlaying } = useSelector((state) => state.player)
-  const {
-    data: artistData,
-    isFetching: isFetchingArtistDetails,
-    error,
-  } = useGetArtistDetailsQuery(artistId)
+
+  const [artistData, setArtistData] = useState({})
+  const [isFetchingArtistDetails, setIsFetchingArtistDetails] = useState(true)
+  const [error, setError] = useState(false)
+
+  useEffect(() => {
+    fetch(
+      `https://shazam-core.p.rapidapi.com/v2/artists/details?artist_id=${artistId}`,
+      {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key": import.meta.env.VITE_SHAZAM_CORE_RAPID_API_KEY,
+          "X-RapidAPI-Host": "shazam-core.p.rapidapi.com",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setIsFetchingArtistDetails(false)
+        setArtistData(data)
+      })
+      .catch((error) => {
+        setIsFetchingArtistDetails(false)
+        setError(true)
+        setArtistData({})
+      })
+  }, [artistId])
 
   if (isFetchingArtistDetails) return <Loader title="Loading artist details" />
 
@@ -22,7 +43,7 @@ const ArtistDetails = () => {
       <DetailsHeader artistId={artistId} artistData={artistData} />
 
       <RelatedSongs
-        data={Object.values(artistData?.songs)}
+        data={artistData?.data[0]?.views?.["top-songs"]?.data}
         artistId={artistId}
         isPlaying={isPlaying}
         activeSong={activeSong}

@@ -9,7 +9,7 @@ const RelatedSongs = ({
   handlePlayClick,
 }) => (
   <div className="flex flex-col">
-    <h1 className="font-bold text-3xl text-white">Related Songs:</h1>
+    <h1 className="font-bold text-3xl text-white mb-3">Related Songs:</h1>
     {data?.map((song, i) => (
       <SongBar
         key={`${song.id}-${artistId}`}
